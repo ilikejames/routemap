@@ -1,0 +1,13 @@
+.svn
+.DS_Store
+__MACOSX
+node_modules/
+.sass-cache/
+dist/
+build/
+_tmp/
+app/assets/css/
+app/assets/vendor
+app/asssets/js/
+.env_*
+npm-debug.log

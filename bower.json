@@ -1,0 +1,15 @@
+{
+	"name": "martinWebApp",
+	"version": "1.0.0",
+	"dependencies": {
+		"fastclick" : "1.x",
+		"angular" : "1.4.5",
+		"angular-ui-router" : "0.2.15",
+		"lodash" : "3.10.0",
+		"eventEmitter" : "x",
+		"d3" : "3.5.6"
+	},
+	"devDependencies": {
+		"angular-mocks" : "1.4.5"
+	}
+}
