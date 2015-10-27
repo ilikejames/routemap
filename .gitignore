@@ -6,8 +6,8 @@ node_modules/
 dist/
 build/
 _tmp/
-app/assets/css/
-app/assets/vendor
-app/asssets/js/
+assets/css/
+assets/vendor
+asssets/js/
 .env_*
 npm-debug.log
