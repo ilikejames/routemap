@@ -6,7 +6,7 @@
 	var router = require('../assets/vendor/angular-ui-router/release/angular-ui-router.js');
 	
 
-	var services =require('common/services'),
+	var services = require('common/services'),
 		components = require('components');
 
 
@@ -14,7 +14,6 @@
 
 	.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', function($locationProvider, $stateProvider, $urlRouterProvider) {
 		
-
 		$locationProvider.html5Mode(true);
 
 		$urlRouterProvider.otherwise("/index.htm");
@@ -24,7 +23,7 @@
 			url: '/index.htm',
 			templateUrl: 'areas/home.htm',
 			controllerAs : 'homeCntrl',
-			controller : function($scope) {
+			controller : function() {
 				this.busNumber = 48;
 				this.station = 'Hackney Town Hall';
 			}

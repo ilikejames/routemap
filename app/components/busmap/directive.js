@@ -6,6 +6,8 @@
  * @param {BusRouteService} [BusRouteService]
  * @param {loash} [_]
  */
+var controller = require('./controller.js');
+
 
 function BusMapDirective(d3, BusRouteService, _) {
 
@@ -13,6 +15,8 @@ function BusMapDirective(d3, BusRouteService, _) {
 
 	return {
 
+		restrict : 'E',
+		
 		scope : {
 			'route' : '@',
 			'station' : '@'
@@ -22,7 +26,7 @@ function BusMapDirective(d3, BusRouteService, _) {
 			return '<div></div>';
 		},
 
-		controller : 'BusMapController',
+		controller :  controller,
 
 		controllerAs : 'busCntrl',
 
@@ -58,7 +62,7 @@ function BusMapDirective(d3, BusRouteService, _) {
 				var circleAttributes = circles
 				.attr("cx", function (d) { return x(d.lon); })
 				.attr("cy", function (d) { return y(d.lat); })
-				.attr("r", function (d) { return 5; })
+				.attr("r", function (d) { return 3; })
 				.style("stroke", "gray")
 				.style('fill', function(d) { return d.name==scope.station ? 'black' : 'white'; });
 

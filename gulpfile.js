@@ -12,7 +12,8 @@ var concat = require('gulp-concat'),
 
 
 gulp.task('test', function() {
-	return runsequence(['testserver', 'testclient']);
+	//return runsequence(['testserver', 'testclient']);
+	return runsequence(['testclient']);
 });
 
 
@@ -83,7 +84,7 @@ gulp.task('js', function() {
     // .pipe(uglify())
     // .on('error', gutil.log)
     // .pipe(rename('app.min.js'))
-    // .pipe(gulp.dest('./public/build/'));
+    // .pipe(gulp.dest('./build/'));
 
 });
 

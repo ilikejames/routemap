@@ -16,12 +16,11 @@
 	.factory('lodash', function() {
 		return lodash;
 	})
-
 	.factory('_', function() {
 		return lodash;
 	})
 
-	.service('BusRouteService', [ '$http', require('./BusRouteService') ])
+	.service('BusRouteService', [ '$http', '$q', 'lodash', require('./BusRouteService') ])
 
 	.controller('HomeController', function() {
 		this.busNumber=1;
