@@ -1,9 +1,12 @@
 
+import angular from 'angular';
 
-(function(angular) {
+(function() {
+
+	'use strict';
 
 	var busMap = require('./busMap');
 	
 	angular.module('components', ['components.busmap']);
 
-})(window.angular);
+})();

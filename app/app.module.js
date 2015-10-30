@@ -1,11 +1,13 @@
 
+import angular from 'angular';
 import router from 'angular-ui-router/release/angular-ui-router.js';
 
 import 'common/services';
 import 'components';
 
-(function (angular) {
+(function () {
 
+	'use strict';
 
 	angular.module('app', ['components', 'common.services', 'ui.router'])
 
@@ -29,6 +31,6 @@ import 'components';
 
 	}]);
 
-})(window.angular);
+})();
 
 

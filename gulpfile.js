@@ -69,8 +69,7 @@ gulp.task('js', function() {
 		extensions: ['.js'],
         paths: [
         	'./node_modules',
-	        './app/',
-	        './assets/vendor/'
+	        './app/'
 	    ],
 	    debug : true
 	});
@@ -84,15 +83,19 @@ gulp.task('js', function() {
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./build/'));
-    
-    // .pipe(uglify())
-    // .on('error', gutil.log)
-    // .pipe(rename('app.min.js'))
-    // .pipe(gulp.dest('./build/'));
 
+});
+
+gulp.task('js_minimize', function() {
+	return gulp.src([
+		'./build/app.js'
+	])
+	.pipe(uglify())
+    .on('error', gutil.log)
+    .pipe(rename('app.min.js'))
+    .pipe(gulp.dest('./build/'));
 });
 
 
@@ -138,7 +141,7 @@ function swallowError(err) {
 gulp.task('watch', function() {
 	gulp.watch('./assets/sass/**/*.scss', ['sass']).on('error', swallowError);
 	gulp.watch('./app/**/*.htm', ['ngtemplates', ['js']]).on('error', swallowError);
-	gulp.watch('./app/**/*.js', ['jshint', 'js']).on('error', swallowError);
+	gulp.watch('./app/**/*.js', ['jshint', 'js', ['js_minimize']]).on('error', swallowError);
 
 	//runsequence(['sass', 'ngtemplates'], 'jshint', 'js');
 });

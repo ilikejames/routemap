@@ -13,6 +13,7 @@
 	},
 
 	"devDependencies": {
+		"angular-mocks" : "x",
 		"jasmine-stealth" : "x",
 		"jasmine-stealth-node" : "x",
 		"jasmine-node" : "1.14.5",
@@ -57,7 +58,12 @@
 		"express-logger" : "0.0.3",
 		"cookie-parser" : "1.4.0",
 		"body-parser" : "1.14.1",
-		"ejs" : "2.3.4"
+		"ejs" : "2.3.4",
+		"Event-Emitter" : "",
+		"angular" : "x",
+		"angular-ui-router" : "x",
+		"fastclick" : "x",
+		"d3" : "x"
 	},
 
 	"main" : "server/server.js",

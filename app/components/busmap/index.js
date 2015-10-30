@@ -1,6 +1,9 @@
+
+import angular from 'angular';
+
 import BusMapDirective from './directive.js';
 
-(function(angular) {
+(function() {
 
 	'use strict';
 
@@ -8,5 +11,5 @@ import BusMapDirective from './directive.js';
 
 	.directive('busMap', ['BusRouteService', BusMapDirective]);
 
-})(window.angular);
+})();
 

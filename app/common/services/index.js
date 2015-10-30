@@ -1,7 +1,9 @@
 
+import angular from 'angular';
+
 import BusRouteService from './BusRouteService.js';
 
-(function(angular) {
+(function() {
 
 	'use strict';
 
@@ -9,5 +11,5 @@ import BusRouteService from './BusRouteService.js';
 
 	.service('BusRouteService', [ '$http', '$q', BusRouteService ]);
 
-})(window.angular);
+})();
 
