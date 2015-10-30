@@ -4,15 +4,13 @@
  * @param {[type]} BusRouteService 
  * @param {[type]} _               
  */
-module.exports = function BusMapController($scope, BusRouteService, _) {
+export default function BusMapController($scope, BusRouteService) {
 
 	$scope.stations = [];
 	
 	$scope.$watch('route', function onChange(newval, oldval) {
 		BusRouteService.getRoute(newval)
-		.then(function(stations) {
-			$scope.stations = stations;
-		});
+		.then( (s) => $scope.stations=s);
 	});
 
-};
+}

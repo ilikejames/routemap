@@ -1,3 +1,4 @@
+import BusMapDirective from './directive.js';
 
 (function(angular) {
 
@@ -5,7 +6,7 @@
 
 	angular.module('components.busmap', ['common.services'])
 
-	.directive('busMap', ['d3', 'BusRouteService', 'lodash', require('./directive.js')]);
+	.directive('busMap', ['BusRouteService', BusMapDirective]);
 
 })(window.angular);
 

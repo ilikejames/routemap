@@ -1,3 +1,9 @@
+
+import controller from './controller.js';
+import d3 from 'd3/d3.js';
+import _ from 'lodash/lodash.js';
+
+
 /**
  * The bus route directive
  * @example
@@ -6,10 +12,7 @@
  * @param {BusRouteService} [BusRouteService]
  * @param {loash} [_]
  */
-var controller = require('./controller.js');
-
-
-function BusMapDirective(d3, BusRouteService, _) {
+export default function BusMapDirective(BusRouteService) {
 
 	'use strict';
 
@@ -73,5 +76,3 @@ function BusMapDirective(d3, BusRouteService, _) {
 		}
 	};
 }
-
-module.exports = BusMapDirective;

@@ -1,7 +1,6 @@
 
 (function (angular) {
 
-	'use strict';
 
 	var router = require('../assets/vendor/angular-ui-router/release/angular-ui-router.js');
 	

@@ -1,12 +1,12 @@
 /**
- * [exports description]
- * @param  {[type]} $http [description]
- * @param  {[type]} $q    [description]
- * @return {[type]} Array of items
+ * [BusRouteService ]
+ * @param {[type]} $http [description]
+ * @param {[type]} $q    [description]
  */
-module.exports = function($http, $q, _) {
+export default function BusRouteService($http, $q) {
 
 	this.getRoute = function getRoute(bus) {
+
 		var d = $q.defer();
 
 		if(!bus) {
@@ -15,18 +15,23 @@ module.exports = function($http, $q, _) {
 		}
 
 		var url = 'https://api.tfl.gov.uk/line/%s/route/sequence/outbound';
+
 		$http.get(url.replace('%s', bus))
 		.then(function(response) {
-			d.resolve(_.map(response.data.stations, function(itm) {
-				return _.pick(itm, 'id', 'lat', 'lon', 'name');
-			}));
+
+			var stations = response.data.stations.map( (x) => ({ 
+					'id' : x.id, 
+					'lat' : x.lat, 
+					'lon' : x.lon, 
+					'name' : x.name 
+				}));
+
+			d.resolve(stations);
 		})
-		.catch(function() {
-			d.resolve([]);
-		});
+		.catch( () => d.resolve([]) );
 
 		return d.promise;
 	};
 
-};
+}
 

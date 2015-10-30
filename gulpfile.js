@@ -56,6 +56,7 @@ gulp.task('ngtemplates', function () {
 
 gulp.task('js', function() {
 
+	var babelify = require("babelify");
 	var browserify = require('browserify');
 	var source = require('vinyl-source-stream');
 	var buffer = require('vinyl-buffer');
@@ -68,12 +69,18 @@ gulp.task('js', function() {
 		extensions: ['.js'],
         paths: [
         	'./node_modules',
-	        './app/'
+	        './app/',
+	        './assets/vendor/'
 	    ],
 	    debug : true
 	});
 
-	return b.bundle()
+	return b.transform(
+		babelify.configure({
+		  only: './app/'
+	}))
+	.bundle()
+	.on('error', handleErrors)
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
@@ -99,7 +106,7 @@ gulp.task('jshint', function() {
 		'!./assets/vendor/**/*.js',
 		'./build/templates.js'
 	])
-	.pipe(jshint({ node: true }))
+	.pipe(jshint({ node: true,  esnext: true}))
 	.pipe(jshint.reporter('default'));
 });
 
@@ -132,6 +139,8 @@ gulp.task('watch', function() {
 	gulp.watch('./assets/sass/**/*.scss', ['sass']).on('error', swallowError);
 	gulp.watch('./app/**/*.htm', ['ngtemplates', ['js']]).on('error', swallowError);
 	gulp.watch('./app/**/*.js', ['jshint', 'js']).on('error', swallowError);
+
+	//runsequence(['sass', 'ngtemplates'], 'jshint', 'js');
 });
 
 
@@ -152,3 +161,20 @@ gulp.task('gzip', function() {
 gulp.task('build', function() {
 	runsequence('test', 'clean', ['sass', 'ngtemplates'], 'buildjs', 'gzip');
 });
+
+
+function handleErrors() {
+
+	var notify = require('gulp-notify');
+
+	var args = Array.prototype.slice.call(arguments);
+
+	// Send error to notification center with gulp-notify
+	notify.onError({
+		title: "Compile Error",
+		message: "<%= error.message %>"
+	}).apply(this, args);
+
+	// Keep gulp from hanging on this task
+	this.emit('end');
+};
