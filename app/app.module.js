@@ -1,12 +1,10 @@
 
+import router from 'angular-ui-router/release/angular-ui-router.js';
+
+import 'common/services';
+import 'components';
+
 (function (angular) {
-
-
-	var router = require('../assets/vendor/angular-ui-router/release/angular-ui-router.js');
-	
-
-	var services = require('common/services'),
-		components = require('components');
 
 
 	angular.module('app', ['components', 'common.services', 'ui.router'])
