@@ -7,10 +7,8 @@ import _ from 'lodash/lodash.js';
 /**
  * The bus route directive
  * @example
- *  <jm-bus-group route="48" station="Hackney Town Hall" zoom="5" group-when="20%"></jm-bus-group>
- * @param {D3} [d3] 
+ *  <bus-group route="48" station="Hackney Town Hall"></bus-group>
  * @param {BusRouteService} [BusRouteService]
- * @param {loash} [_]
  */
 export default function BusMapDirective(BusRouteService) {
 

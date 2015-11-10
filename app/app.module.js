@@ -26,7 +26,6 @@ import 'components';
 				this.busNumber = 48;
 				this.station = 'Hackney Town Hall';
 			}
-
 		});
 
 	}]);

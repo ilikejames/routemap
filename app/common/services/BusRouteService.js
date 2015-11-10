@@ -14,12 +14,12 @@ export default function BusRouteService($http, $q) {
 			return d.promise;
 		}
 
-		var url = 'https://api.tfl.gov.uk/line/%s/route/sequence/outbound';
+		var url = `https://api.tfl.gov.uk/line/${bus}/route/sequence/outbound`;
 
-		$http.get(url.replace('%s', bus))
+		$http.get(url)
 		.then(function(response) {
 
-			var stations = response.data.stations.map( (x) => ({ 
+			var stations = response.data.stations.map((x) => ({ 
 					'id' : x.id, 
 					'lat' : x.lat, 
 					'lon' : x.lon, 
@@ -28,7 +28,7 @@ export default function BusRouteService($http, $q) {
 
 			d.resolve(stations);
 		})
-		.catch( () => d.resolve([]) );
+		.catch(() => d.resolve([]));
 
 		return d.promise;
 	};

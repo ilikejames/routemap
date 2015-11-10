@@ -44,6 +44,11 @@
 		"karma-jasmine": "~0.2.0",
 		"karma-ng-html2js-preprocessor": "^0.1.2",
 		"karma-webpack" : "1.7.0",
+		"karma-babel-preprocessor" : "x",
+		"karma-browserify" : "x",
+		"babel-polyfill" : "x",
+		"browserify-shim" : "x",
+		"babel-preset-es2015" : "x",
 		"karma-sourcemap-loader" : "0.3.5",
 		"babelify" : "6.x", 
 		"babel-root-import" : "1.1.x"
@@ -63,7 +68,8 @@
 		"angular" : "x",
 		"angular-ui-router" : "x",
 		"fastclick" : "x",
-		"d3" : "x"
+		"d3" : "x", 
+		"angular-websocket" : "x"
 	},
 
 	"main" : "server/server.js",

@@ -1,8 +1,7 @@
 /**
  * [BusMapController]
  * @param {[type]} $scope          
- * @param {[type]} BusRouteService 
- * @param {[type]} _               
+ * @param {[type]} BusRouteService              
  */
 export default function BusMapController($scope, BusRouteService) {
 
